@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "./main/index";
+import Main from "./Main/index";
 
 const App: React.FC = () => {
   return <Main />;

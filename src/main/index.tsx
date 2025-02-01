@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header/index";
+import Body from "./Body/index";
 
 const Main: React.FC = () => {
-  return <Header />;
+  return <Body />;
 };
 
 export default Main;
