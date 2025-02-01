@@ -14,7 +14,6 @@ const Body: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const clickHandler = () => {
-    console.log("Button clicked");
     setDialogOpen(true);
   };
 
