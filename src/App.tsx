@@ -1,14 +1,8 @@
-import React from 'react';
+import React from "react";
+import Main from "./main/index";
 
 const App: React.FC = () => {
-
-
-  
-  return (
-    <div>
-      <header></header>
-    </div>
-  );
+  return <Main />;
 };
 
 export default App;
