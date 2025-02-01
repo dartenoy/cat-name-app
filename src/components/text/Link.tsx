@@ -7,7 +7,12 @@ interface LinkProps {
 
 const Link: React.FC<LinkProps> = ({ url, text }) => {
   return (
-    <a href={`https://${url}`} className="text-blue-500 underline">
+    <a
+      href={url}
+      className={`text-blue-500 underline`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {text}
     </a>
   );

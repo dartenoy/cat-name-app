@@ -14,16 +14,16 @@ const dialogText =
 
 const urls = [
   {
-    url: "Google.com",
-    text: "Google",
+    url: "https://www.name-generator.org.uk/cat/",
+    text: "Cat name generator",
   },
   {
-    url: "Facebook.com",
-    text: "Facebook",
+    url: "https://www.felixcatinsurance.com/blog/cat-horoscopes/",
+    text: "Cat horoscopes",
   },
   {
-    url: "Twitter.com",
-    text: "Twitter",
+    url: "https://www.cats.org.uk/help-and-advice/getting-a-cat/pet-insurance",
+    text: "Cat insurance",
   },
 ];
 
@@ -43,34 +43,39 @@ const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
     setIsVisible(true);
   }, []);
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      handleClose();
+    }
+  };
+
   return (
     <div
-      onClick={handleClose}
-      className={`fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm z-50 flex items-center justify-center transition-opacity duration-300 ease-in-out ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      onClick={handleBackdropClick}
+      className={`fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm z-50 flex items-center justify-center transition-opacity duration-300 ease-in-out 
+        ${isVisible ? "opacity-100" : "opacity-0"}`}
     >
       <div
-        className={`bg-white bg-opacity-90 p-4 rounded shadow-lg max-w-md transform transition-transform duration-300 ease-in-out ${
-          isVisible ? "scale-100" : "scale-75"
-        }`}
+        className={`bg-white bg-opacity-90 p-6 rounded shadow-lg max-w-lg min-h-1/4 max-h-3/4 transform transition-transform duration-300 ease-in-out 
+          ${isVisible ? "scale-100" : "scale-75"}`}
       >
         <StyledSmallTitle text="Dialog Title" />
         <StyledSmalledParagraph text={dialogText} />
-        <div className="flex justify-between items-center mt-4">
+        <div className="flex justify-between items-center mt-4 flex-wrap sm:flex-nowrap sm:space-x-4">
+          {urls.map((link) => (
+            <div key={link.url} className="m-2">
+              <Link url={link.url} text={link.text} />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-4">
           <Button
             text="Close"
             onClick={handleClose}
             bgColor="red-500"
             textColor="white"
+            hoverBgColor="red-400"
           />
-          <ul className="flex space-x-4">
-            {urls.map((link) => (
-              <li key={link.url}>
-                <Link url={link.url} text={link.text} />
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>

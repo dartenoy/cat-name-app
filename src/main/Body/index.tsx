@@ -5,10 +5,10 @@ import Button from "../../components/buttons/Button";
 import { StyledTitle } from "../../components/text/Titles";
 import { StyledParagraph } from "../../components/text/Paragraphs";
 
-const title = "Welcome to dialog demo!";
+const title = "List of Popular Cat Names!";
 const paragraph =
-  "This is a demo of a dialog component. Click the button below to open the dialog.";
-const buttonText = "Open Dialog";
+  "Open the dialog to see a list of popular cat names. If you really hate the name - delete it!";
+const buttonText = "Show cat names!";
 
 const Body: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
