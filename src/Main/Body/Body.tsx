@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/buttons/Button";
 import { StyledTitle } from "../../components/text/Titles";
 import { StyledParagraph } from "../../components/text/Paragraphs";
 import Dialog from "../Dialog/Dialog";
 import WhiteCard from "../../components/cards/whiteCard";
+import { preloadImages } from "../../utils/preloadImages";
 
 const title = "List of Popular Cat Names!";
 const paragraph =
@@ -16,6 +17,10 @@ const Body: React.FC = () => {
   const clickHandler = () => {
     setDialogOpen(true);
   };
+
+  useEffect(() => {
+    preloadImages();
+  }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
