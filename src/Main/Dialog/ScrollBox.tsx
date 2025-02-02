@@ -2,14 +2,22 @@ import React, { useState, useEffect } from "react";
 import { textContent } from "../../content";
 import useScrollControl from "../../hooks/useScrollControl";
 import Spinner from "../../components/UI/Spinner";
+import { addIdToNames } from "../../utils/addIdToItems";
 
 interface ScrollBoxProps {
   setDisplayPicture: (displayPicture: boolean) => void;
 }
 
+interface Cat {
+  name: string;
+  id: string;
+}
+
+const dataArray = addIdToNames(textContent.dialog.catNames);
+console.log(dataArray);
 const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
-  const [catNames, setCatNames] = useState(textContent.dialog.catNames);
-  const [visibleCatNames, setVisibleCatNames] = useState<string[]>([]);
+  const [catNames, setCatNames] = useState(dataArray);
+  const [visibleCatNames, setVisibleCatNames] = useState<typeof dataArray>([]);
   const [catNamesLoading, setCatNamesLoading] = useState(false);
   const [lastCatName, setLastCatName] = useState<string>("");
 
@@ -19,9 +27,10 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   }, [catNames]);
 
   useEffect(() => {
+    console.log(visibleCatNames);
     if (visibleCatNames.length > 0) {
       /////// every time visibleCatNames changes, setting new lastCatName
-      setLastCatName(visibleCatNames[visibleCatNames.length - 1]);
+      setLastCatName(visibleCatNames[visibleCatNames.length - 1].id);
     }
   }, [visibleCatNames]);
 
@@ -32,11 +41,11 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
     setCatNamesLoading
   );
 
-  const handleRemove = (name: string) => {
+  const handleRemove = (id: string) => {
     /// if last cat name is same as deleted, setting display state
-    if (lastCatName === name) setDisplayPicture(true);
+    if (lastCatName === id) setDisplayPicture(true);
     /// shallow copy of array, setting it to state wihtout deleted name
-    const newCatNames = catNames.filter((catName) => catName !== name);
+    const newCatNames = catNames.filter((cat: Cat) => cat.id !== id);
     setCatNames(newCatNames);
   };
 
@@ -52,11 +61,11 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
             <Spinner />
           </li>
         )}
-        {visibleCatNames.map((name: string) => (
-          <li key={name} className="py-1 flex justify-between items-center">
-            {name}
+        {visibleCatNames.map((cat: Cat) => (
+          <li key={cat.id} className="py-1 flex justify-between items-center">
+            {cat.name}
             <button
-              onClick={() => handleRemove(name)}
+              onClick={() => handleRemove(cat.id)}
               className="ml-4 text-red-500 hover:underline"
               tabIndex={-1}
             >

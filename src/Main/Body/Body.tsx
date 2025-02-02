@@ -5,6 +5,7 @@ import { StyledParagraph } from "../../components/text/Paragraphs";
 import Dialog from "../Dialog/Dialog";
 import WhiteCard from "../../components/cards/whiteCard";
 import { preloadImages } from "../../utils/preloadImages";
+import { textContent } from "../../content";
 
 const title = "List of Popular Cat Names!";
 const paragraph =
@@ -19,7 +20,7 @@ const Body: React.FC = () => {
   };
 
   useEffect(() => {
-    preloadImages();
+    preloadImages([textContent.dialog.deletedLastImg]);
   }, []);
 
   return (
