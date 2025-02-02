@@ -13,7 +13,11 @@ const LastMessageDeleted: React.FC<LastMessageDeletedProps> = ({ clickHanlder })
       onClick={clickHanlder}
     >
       <StyledSmalledParagraph text={textContent.dialog.deletedLastMessage} />
-      <img src={textContent.dialog.deletedLastImg} alt="A cat" className="w-30 h-15 " />
+      <img
+        src={textContent.dialog.deletedLastImg}
+        alt="deleted last name - sad cat"
+        className="w-30 h-15 "
+      />
     </div>
   );
 };
