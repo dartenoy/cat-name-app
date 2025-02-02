@@ -11,6 +11,7 @@ const useScrollControl = (
   const prevScrollHeight = useRef(0);
 
   useEffect(() => {
+    //// Scroll at the bottom once visibleItems are set
     if (scrollRef.current && !initialScrollDone.current && visibleItems.length > 0) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
       initialScrollDone.current = true;
@@ -18,10 +19,16 @@ const useScrollControl = (
   }, [visibleItems]);
 
   const handleScroll = () => {
+    /// checking for scroll at the top
     if (scrollRef.current && scrollRef.current.scrollTop === 0) {
+      /// handling when all items are loaded
+      if (visibleItems.length >= allItems.length) {
+        setLoading(false);
+        return;
+      }
       prevScrollHeight.current = scrollRef.current.scrollHeight;
       setLoading(true);
-
+      //// simulating loading
       setTimeout(() => {
         setVisibleItems((prevVisibleItems) => {
           const currentLength = prevVisibleItems.length;
@@ -29,11 +36,12 @@ const useScrollControl = (
           setLoading(false);
           return allItems.slice(-newLength);
         });
-      }, 1000000);
+      }, 1000);
     }
   };
 
   useEffect(() => {
+    //// saving scroll position once new items are loaded
     if (scrollRef.current && prevScrollHeight.current) {
       scrollRef.current.scrollTop =
         scrollRef.current.scrollHeight - prevScrollHeight.current;

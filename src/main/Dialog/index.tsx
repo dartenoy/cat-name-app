@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/buttons/Button";
-import Link from "../../components/text/Link";
 import { StyledSmallTitle } from "../../components/text/Titles";
-import { StyledSmalledParagraph } from "../../components/text/Paragraphs";
 import useESCPress from "../../hooks/useESCPress";
-import { textContent, urls } from "../../content";
+import { textContent } from "../../content";
 import ScrollBox from "./ScrollBox/index";
 import Backdrop from "../../components/UI/Backdrop";
 import DialogCard from "../../components/cards/DialogCard";
@@ -20,6 +18,7 @@ const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
   const [displayPicture, setDisplayPicture] = useState(false);
 
   const handleClose = () => {
+    /// Timeout to wait for animation to finish
     setIsVisible(false);
     setTimeout(() => {
       setDialogOpen(false);
@@ -29,6 +28,7 @@ const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
   useESCPress(handleClose);
 
   useEffect(() => {
+    // Triggers animation on mount
     setIsVisible(true);
   }, []);
 
@@ -39,6 +39,7 @@ const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
   };
 
   const handleLastMessageDeletedClick = () => {
+    /// hides the picture displayed after deleting last name.
     setDisplayPicture(false);
   };
 
