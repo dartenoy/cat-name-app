@@ -17,7 +17,9 @@ export const textContent = {
   card: {
     title: "Interesting Cat Names",
     content: "Here are some interesting cat names to consider for your new furry friend:",
+    button: "Show cat names!",
   },
+
   dialog: {
     dialogTitle: "Interesting Cat Names",
     deletedLastMessage: "You've deleted the last item!",

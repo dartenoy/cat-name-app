@@ -4,11 +4,9 @@ import { StyledTitle } from "../../components/text/Titles";
 import { StyledParagraph } from "../../components/text/Paragraphs";
 import Dialog from "../Dialog/Dialog";
 import WhiteCard from "../../components/cards/whiteCard";
+import { textContent } from "../../content";
 
-const title = "List of Popular Cat Names!";
-const paragraph =
-  "Open the dialog to see a list of popular cat names. If you really hate the name - delete it!";
-const buttonText = "Show cat names!";
+const card = textContent.card;
 
 const Body: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -21,9 +19,9 @@ const Body: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen">
       {dialogOpen && <Dialog setDialogOpen={setDialogOpen} />}
       <WhiteCard>
-        <StyledTitle text={title} />
-        <StyledParagraph text={paragraph} />
-        <Button onClick={clickHandler} text={buttonText} />
+        <StyledTitle text={card.title} />
+        <StyledParagraph text={card.content} />
+        <Button onClick={clickHandler} text={card.button} />
       </WhiteCard>
     </div>
   );
