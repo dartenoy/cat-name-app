@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledSmalledParagraph } from "../../../components/text/Paragraphs";
-import { textContent } from "../../../content";
+import { StyledSmalledParagraph } from "../../components/text/Paragraphs";
+import { textContent } from "../../content";
 
 interface LastMessageDeletedProps {
   clickHanlder: (e: React.MouseEvent<HTMLDivElement>) => void;

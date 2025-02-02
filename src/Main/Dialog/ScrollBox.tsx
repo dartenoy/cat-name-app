@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { textContent } from "../../../content";
-import useScrollControl from "../../../hooks/useScrollControl";
-import Spinner from "../../../components/UI/Spinner";
+import { textContent } from "../../content";
+import useScrollControl from "../../hooks/useScrollControl";
+import Spinner from "../../components/UI/Spinner";
 
 interface ScrollBoxProps {
   setDisplayPicture: (displayPicture: boolean) => void;

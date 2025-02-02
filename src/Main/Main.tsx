@@ -1,5 +1,5 @@
 import React from "react";
-import Body from "./Body";
+import Body from "./Body/Body";
 
 const Main: React.FC = () => {
   return <Body />;
