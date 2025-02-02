@@ -50,6 +50,7 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
       scrollRef.current?.scrollHeight < scrollIsGoneTrigger
     )
       loadMoreItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleCatNames]);
 
   const handleRemove = (id: string) => {
