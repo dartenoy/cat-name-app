@@ -21,6 +21,11 @@ const useScrollControl = (
   const handleScroll = () => {
     /// checking for scroll at the top
     if (scrollRef.current && scrollRef.current.scrollTop === 0) {
+      /// handling when all items are loaded
+      if (visibleItems.length >= allItems.length) {
+        setLoading(false);
+        return;
+      }
       prevScrollHeight.current = scrollRef.current.scrollHeight;
       setLoading(true);
       //// simulating loading
