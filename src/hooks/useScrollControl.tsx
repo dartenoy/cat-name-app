@@ -13,13 +13,13 @@ const useScrollControl = (
     /// scroll handler on cooldown
     if (cooldownRef.current === true) return;
 
+    const scrollElement = scrollRef.current;
+    const isScrollAtBottom = scrollElement
+      ? scrollElement.scrollTop + scrollElement.clientHeight >=
+        scrollElement.scrollHeight - tolerance
+      : false;
     //// Loading more items when near very bottom of scroll
-    if (
-      scrollRef.current &&
-      scrollRef.current.scrollTop + scrollRef.current.clientHeight >=
-        scrollRef.current.scrollHeight - tolerance
-    )
-      loadMoreItems();
+    if (scrollElement && isScrollAtBottom) loadMoreItems();
   };
 
   return { scrollRef, handleScroll };
