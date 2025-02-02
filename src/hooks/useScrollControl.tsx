@@ -9,6 +9,7 @@ const useScrollControl = (
   const scrollRef = useRef<HTMLDivElement>(null);
   const initialScrollDone = useRef(false);
   const prevScrollHeight = useRef(0);
+  const cooldownRef = useRef(false);
 
   useEffect(() => {
     //// Scroll at the bottom once visibleItems are set
@@ -20,7 +21,7 @@ const useScrollControl = (
 
   const handleScroll = () => {
     /// checking for scroll at the top
-    if (scrollRef.current && scrollRef.current.scrollTop === 0) {
+    if (scrollRef.current && scrollRef.current.scrollTop === 0 && !cooldownRef.current) {
       /// handling when all items are loaded
       if (visibleItems.length >= allItems.length) {
         setLoading(false);
@@ -28,6 +29,7 @@ const useScrollControl = (
       }
       prevScrollHeight.current = scrollRef.current.scrollHeight;
       setLoading(true);
+      cooldownRef.current = true;
       //// simulating loading
       setTimeout(() => {
         setVisibleItems((prevVisibleItems) => {
@@ -36,6 +38,7 @@ const useScrollControl = (
           setLoading(false);
           return allItems.slice(-newLength);
         });
+        cooldownRef.current = false;
       }, 1000);
     }
   };
