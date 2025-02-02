@@ -98,7 +98,11 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
       {visibleCatNames.length === 0 && !catNamesLoading && (
         <div className="text-center max-w-xs mx-auto">
           {/* Not in content, so it's more a secret message to whoever deletes all items */}
-          <StyledParagraph text="Congrats, you have deleted all the list items. You got nothing better to do?" />
+          <StyledParagraph>
+            {
+              "Congrats, you have deleted all the list items. You got nothing better to do?"
+            }
+          </StyledParagraph>
         </div>
       )}
       <ul>

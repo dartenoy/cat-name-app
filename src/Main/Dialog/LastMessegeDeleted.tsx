@@ -12,7 +12,9 @@ const LastMessageDeleted: React.FC<LastMessageDeletedProps> = ({ clickHanlder })
       className="flex flex-col justify-center items-center mt-1"
       onClick={clickHanlder}
     >
-      <StyledSmalledParagraph text={textContent.dialog.deletedLastMessage} />
+      <StyledSmalledParagraph>
+        {textContent.dialog.deletedLastMessage}
+      </StyledSmalledParagraph>
       <img
         src={textContent.dialog.deletedLastImg}
         alt="deleted last name - sad cat"
