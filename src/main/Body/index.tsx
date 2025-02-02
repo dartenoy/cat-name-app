@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import WhiteCard from "../../components/cards/WhiteCard";
-import Dialog from "../Dialog/index";
+import Dialog from "../Dialog";
 import Button from "../../components/buttons/Button";
 import { StyledTitle } from "../../components/text/Titles";
 import { StyledParagraph } from "../../components/text/Paragraphs";

@@ -3,11 +3,11 @@ import Button from "../../components/buttons/Button";
 import { StyledSmallTitle } from "../../components/text/Titles";
 import useESCPress from "../../hooks/useESCPress";
 import { textContent } from "../../content";
-import ScrollBox from "./ScrollBox/index";
+import ScrollBox from "./ScrollBox";
 import Backdrop from "../../components/UI/Backdrop";
 import DialogCard from "../../components/cards/DialogCard";
-import LinkGroup from "./LinkGroup/index";
-import LastMessageDeleted from "./LastMessageDeleted/index";
+import LinkGroup from "./LinkGroup";
+import LastMessageDeleted from "./LastMessageDeleted";
 
 interface DialogProps {
   setDialogOpen: (open: boolean) => void;
