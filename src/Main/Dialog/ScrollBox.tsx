@@ -20,18 +20,22 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   const [catNamesLoading, setCatNamesLoading] = useState(false);
   const [lastCatId, setLastCatId] = useState<string>("");
 
-  useEffect(() => {
-    ////// Setting first 20 cat names
-    setVisibleCatNames(catNames.slice(0, 20));
-    setLastCatId(catNames[catNames.length - 1]?.id);
-  }, []);
-
   const { scrollRef, handleScroll } = useScrollControl(
     visibleCatNames,
     setVisibleCatNames,
     catNames,
     setCatNamesLoading
   );
+
+  useEffect(() => {
+    ////// Setting first 20 cat names
+    setVisibleCatNames(catNames.slice(0, 20));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setLastCatId(catNames[catNames.length - 1]?.id);
+  }, [catNames]);
 
   const handleRemove = (id: string) => {
     if (lastCatId === id) setDisplayPicture(true);
