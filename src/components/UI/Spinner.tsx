@@ -6,7 +6,7 @@ const Spinner: React.FC = () => {
       <svg
         aria-hidden="true"
         className="inline w-8 h-8 animate-spin text-gray-200"
-        style={{ fill: "#1D4ED8" }} // Use inline styles to set color
+        style={{ fill: "#1D4ED8" }}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,6 @@ const Spinner: React.FC = () => {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
     </div>
   );
 };

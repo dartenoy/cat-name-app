@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 interface Paragraph {
-  children: ReactNode;
+  children: string;
 }
 
 export const StyledParagraph: React.FC<Paragraph> = ({ children }) => {

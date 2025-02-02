@@ -26,11 +26,7 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   const [lastCatId, setLastCatId] = useState<string>("");
   const cooldownRef = useRef(false);
 
-  const { scrollRef, handleScroll } = useScrollControl(
-    visibleCatNames,
-    cooldownRef,
-    loadMoreItems
-  );
+  const { scrollRef, handleScroll } = useScrollControl(cooldownRef, loadMoreItems);
 
   useEffect(() => {
     setVisibleCatNames(catNames.slice(0, 20));

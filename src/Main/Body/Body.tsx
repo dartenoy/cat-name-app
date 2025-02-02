@@ -19,8 +19,8 @@ const Body: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen">
       {dialogOpen && <Dialog setDialogOpen={setDialogOpen} />}
       <WhiteCard>
-        <StyledTitle text={card.title} />
-        <StyledParagraph>{card.content} </StyledParagraph>
+        <StyledTitle>{card.title}</StyledTitle>
+        <StyledParagraph>{card.content}</StyledParagraph>
         <Button onClick={clickHandler} text={card.button} />
       </WhiteCard>
     </div>

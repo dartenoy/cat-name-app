@@ -46,7 +46,7 @@ const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
   return (
     <Backdrop isVisible={isVisible} handleBackdropClick={handleBackdropClick}>
       <DialogCard isVisible={isVisible}>
-        <StyledSmallTitle text={textContent.dialog.dialogTitle} />
+        <StyledSmallTitle>{textContent.dialog.dialogTitle}</StyledSmallTitle>
         <ScrollBox setDisplayPicture={setDisplayPicture} />
         {displayPicture && (
           <LastMessageDeleted clickHanlder={handleLastMessageDeletedClick} />
