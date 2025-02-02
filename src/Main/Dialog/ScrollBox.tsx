@@ -34,7 +34,6 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   );
 
   const handleRemove = (id: string) => {
-    console.log(id, lastCatId);
     if (lastCatId === id) setDisplayPicture(true);
     const newCatNames = catNames.filter((cat: Cat) => cat.id !== id);
     setCatNames(newCatNames);
