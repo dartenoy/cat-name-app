@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+const tolerance = 5;
+
 const useScrollControl = (
   visibleItems: any[],
   setVisibleItems: (items: any[] | ((prevVisibleItems: any[]) => any[])) => void,
@@ -7,36 +9,33 @@ const useScrollControl = (
   setLoading: (loading: boolean) => void
 ) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const initialScrollDone = useRef(false);
   const prevScrollHeight = useRef(0);
   const cooldownRef = useRef(false);
 
-  useEffect(() => {
-    //// Scroll at the bottom once visibleItems are set
-    if (scrollRef.current && !initialScrollDone.current && visibleItems.length > 0) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-      initialScrollDone.current = true;
-    }
-  }, [visibleItems]);
-
   const handleScroll = () => {
-    /// checking for scroll at the top
-    if (scrollRef.current && scrollRef.current.scrollTop === 0 && !cooldownRef.current) {
+    /// scroll handler on cooldown
+    if (cooldownRef.current === true) return;
+    ///// checking is scroll is down
+    if (
+      scrollRef.current &&
+      scrollRef.current.scrollTop + scrollRef.current.clientHeight >=
+        scrollRef.current.scrollHeight - tolerance
+    ) {
       /// handling when all items are loaded
       if (visibleItems.length >= allItems.length) {
         setLoading(false);
         return;
       }
-      prevScrollHeight.current = scrollRef.current.scrollHeight;
+
+      //// simulating loading
       setLoading(true);
       cooldownRef.current = true;
-      //// simulating loading
       setTimeout(() => {
         setVisibleItems((prevVisibleItems) => {
           const currentLength = prevVisibleItems.length;
           const newLength = currentLength + 20;
           setLoading(false);
-          return allItems.slice(-newLength);
+          return [...prevVisibleItems, ...allItems.slice(currentLength, newLength)];
         });
         cooldownRef.current = false;
       }, 1000);
