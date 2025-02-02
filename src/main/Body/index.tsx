@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import WhiteCard from "../../components/cards/WhiteCard";
 import Dialog from "../Dialog/index";
 import Button from "../../components/buttons/Button";
