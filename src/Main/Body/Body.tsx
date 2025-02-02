@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import WhiteCard from "../../components/cards/WhiteCard";
-import Dialog from "../Dialog";
 import Button from "../../components/buttons/Button";
 import { StyledTitle } from "../../components/text/Titles";
 import { StyledParagraph } from "../../components/text/Paragraphs";
+import Dialog from "../Dialog/Dialog";
 
 const title = "List of Popular Cat Names!";
 const paragraph =

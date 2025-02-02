@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "../../../components/text/Link";
-import { urls } from "../../../content";
+import { urls } from "../../content";
+import Link from "../../components/text/Link";
 
 const LinkGroup: React.FC = () => {
   return (

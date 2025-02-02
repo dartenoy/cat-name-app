@@ -7,7 +7,7 @@ import ScrollBox from "./ScrollBox";
 import Backdrop from "../../components/UI/Backdrop";
 import DialogCard from "../../components/cards/DialogCard";
 import LinkGroup from "./LinkGroup";
-import LastMessageDeleted from "./LastMessageDeleted";
+import LastMessageDeleted from "./LastMessegeDeleted";
 
 interface DialogProps {
   setDialogOpen: (open: boolean) => void;
