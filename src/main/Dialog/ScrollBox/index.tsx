@@ -14,11 +14,13 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   const [lastCatName, setLastCatName] = useState<string>("");
 
   useEffect(() => {
+    ////// Setting last 20 cat names
     setVisibleCatNames(catNames.slice(-20));
   }, [catNames]);
 
   useEffect(() => {
     if (visibleCatNames.length > 0) {
+      /////// every time visibleCatNames changes, setting new lastCatName
       setLastCatName(visibleCatNames[visibleCatNames.length - 1]);
     }
   }, [visibleCatNames]);
@@ -31,7 +33,9 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   );
 
   const handleRemove = (name: string) => {
+    /// if last cat name is same as deleted, setting display state
     if (lastCatName === name) setDisplayPicture(true);
+    /// shallow copy of array, setting it to state wihtout deleted name
     const newCatNames = catNames.filter((catName) => catName !== name);
     setCatNames(newCatNames);
   };
