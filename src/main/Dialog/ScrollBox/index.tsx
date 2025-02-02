@@ -58,6 +58,7 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
             <button
               onClick={() => handleRemove(name)}
               className="ml-4 text-red-500 hover:underline"
+              tabIndex={-1}
             >
               Remove
             </button>
