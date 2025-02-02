@@ -9,6 +9,7 @@ import ScrollBox from "./ScrollBox/index";
 import Backdrop from "../../components/UI/Backdrop";
 import DialogCard from "../../components/cards/DialogCard";
 import LinkGroup from "./LinkGroup/index";
+import LastMessageDeleted from "./LastMessageDeleted/index";
 
 interface DialogProps {
   setDialogOpen: (open: boolean) => void;
@@ -16,6 +17,7 @@ interface DialogProps {
 
 const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [displayPicture, setDisplayPicture] = useState(false);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -36,11 +38,18 @@ const Dialog: React.FC<DialogProps> = ({ setDialogOpen }) => {
     }
   };
 
+  const handleLastMessageDeletedClick = () => {
+    setDisplayPicture(false);
+  };
+
   return (
     <Backdrop isVisible={isVisible} handleBackdropClick={handleBackdropClick}>
       <DialogCard isVisible={isVisible}>
         <StyledSmallTitle text={textContent.dialog.dialogTitle} />
-        <ScrollBox />
+        <ScrollBox setDisplayPicture={setDisplayPicture} />
+        {displayPicture && (
+          <LastMessageDeleted clickHanlder={handleLastMessageDeletedClick} />
+        )}
         <LinkGroup />
         <div className="flex justify-center mt-4">
           <Button

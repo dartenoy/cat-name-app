@@ -20,6 +20,8 @@ export const textContent = {
   },
   dialog: {
     dialogTitle: "Interesting Cat Names",
+    deletedLastMessage: "You've deleted the last item!",
+    deletedLastImg: "https://placecats.com/millie/300/150",
     catNames: [
       "Whiskers",
       "Mittens",
