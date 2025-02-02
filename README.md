@@ -2,25 +2,25 @@ To locally run this project:
 
 1. Make sure you have Yarn installed:
 
-### yarn --version
+### `yarn --version`
 
 If you dont have yarn installed:
 
-### npm install --global yarn
+### `npm install --global yarn`
 
 2. To clone repository use:
 
-### git clone https://github.com/dartenoy/cat-name-app.git
+### `git clone https://github.com/dartenoy/cat-name-app.git`
 
-### cd .\cat-name-app\
+### `cd .\cat-name-app\`
 
 3. Install dependencies:
 
-### yarn install
+### `yarn install`
 
 4. Start local development server:
 
-### yarn start
+### `yarn start`
 
 # Getting Started with Create React App
 
