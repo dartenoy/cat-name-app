@@ -3,7 +3,7 @@ import Button from "../../components/buttons/Button";
 import { StyledTitle } from "../../components/text/Titles";
 import { StyledParagraph } from "../../components/text/Paragraphs";
 import Dialog from "../Dialog/Dialog";
-import WhiteCard from "../../components/cards/whiteCard";
+import WhiteCard from "../../components/cards/WhiteCard";
 import { textContent } from "../../content";
 
 const card = textContent.card;

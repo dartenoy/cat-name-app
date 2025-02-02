@@ -18,6 +18,7 @@ interface Cat {
 const scrollIsGoneTrigger = 256;
 
 const dataArray = addIdToNames(textContent.dialog.catNames);
+
 const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   const [catNames, setCatNames] = useState(dataArray);
   const [visibleCatNames, setVisibleCatNames] = useState<typeof dataArray>([]);
@@ -32,7 +33,6 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
   );
 
   useEffect(() => {
-    ////// Setting first 20 cat names
     setVisibleCatNames(catNames.slice(0, 20));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -97,6 +97,7 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
     >
       {visibleCatNames.length === 0 && !catNamesLoading && (
         <div className="text-center max-w-xs mx-auto">
+          {/* Not in content, so it's more a secret message to whoever deletes all items */}
           <StyledParagraph text="Congrats, you have deleted all the list items. You got nothing better to do?" />
         </div>
       )}

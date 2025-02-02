@@ -1,18 +1,21 @@
-import { useEffect } from "react";
+import { act, useEffect } from "react";
 
 type HandleCloseFunction = () => void;
+
+const action = "keydown";
+const key = "Escape";
 
 const useESCPress = (handleClose: HandleCloseFunction) => {
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === key) {
         handleClose();
       }
     };
 
-    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener(action, handleKeyPress);
     return () => {
-      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener(action, handleKeyPress);
     };
   }, [handleClose]);
 };
