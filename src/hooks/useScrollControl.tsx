@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 //// how close to be next to bottom in px, to trigger item load
 const tolerance = 5;
