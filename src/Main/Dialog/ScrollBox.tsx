@@ -101,7 +101,7 @@ const ScrollBox: React.FC<ScrollBoxProps> = ({ setDisplayPicture }) => {
           </StyledParagraph>
         </div>
       )}
-      <ul>
+      <ul mb-6>
         {visibleCatNames.map((cat: Cat) => (
           <li key={cat.id} className="py-1 flex justify-between items-center">
             {cat.name}
