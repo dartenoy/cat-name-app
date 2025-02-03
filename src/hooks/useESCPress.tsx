@@ -1,4 +1,4 @@
-import { act, useEffect } from "react";
+import { useEffect } from "react";
 
 type HandleCloseFunction = () => void;
 
